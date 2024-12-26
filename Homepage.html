@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <div id="navBar">
+        <a href="Homepage.html">Home</a>
+        <a href="search.html">Search</a>
+        <a href="resume-upload.html">Resume</a>
+        <a href="application.html">Application</a>
+        <a href="appliedJobs.html">Applied Jobs</a>
+    </div>
+   
+
+    <div class="container">
+        <div id="slide">
+            <div class="item" style="background-image: url('7.jpeg');">
+                <div class="content">
+                    <div class="name"><h2>Final Process</h2></div>
+                    <div class="des">The company aims to identify the best-suited individual who meets the job requirements.</div>
+                </div>
+            </div>
+            <div class="item" style="background-image: url('1.jpg');">
+                <div class="content">
+                    <div class="name"><h2>About</h2></div>
+                    <div class="des">Welcome to JobDekho, the platform where job seekers and employers connect seamlessly. We offer personalized job recommendations, a wide range of opportunities, and tools to simplify your job search or hiring process. Join us to take the next step toward your dream career or building an exceptional team.<h5>Your journey starts here!</h5></div>
+                </div>
+            </div>
+            <div class="item" style="background-image: url('3.jpg');">
+                <div class="content">
+                    <div class="name"><h2>Job Application</h2></div>
+                    <div class="des">A job application is like a ticket you give to a company to show them why they should choose you for a job.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
+            <button id="next"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('next').onclick = function(){
+    let lists = document.querySelectorAll('.item');
+    document.getElementById('slide').appendChild(lists[0]);
+}
+document.getElementById('prev').onclick = function(){
+    let lists = document.querySelectorAll('.item');
+    document.getElementById('slide').prepend(lists[lists.length - 1]);
+}
+  
+    </script>
+</body>
+
+</html>

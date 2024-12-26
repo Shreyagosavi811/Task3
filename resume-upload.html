@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Upload</title>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.6.1/dist/jspdf.umd.min.js"></script>
+
+
+    <style>
+    body{
+        background-color: lavender;
+        }
+    #navBar{
+    display: flex;
+    justify-content: space-around;
+    padding: 1.5%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 1vw;
+    background-color: lavender;
+}
+a{
+    color:#4B0082;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5vw;
+}
+table, td, th{
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+th,td {
+    padding: 15px;
+}
+
+thead>tr>th {
+    background-color: teal;
+    color: white;
+}
+        
+        #resumeUpload input[type="file"] {
+            margin-top: 20px;
+        }
+        #inputBox {
+        width: 60%;
+        margin: auto;
+        margin-top: 40px;
+        padding: 2%;
+        border: 1px solid #ddd;
+        border-radius: 5%;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    #inputBox h2 {
+        text-align: center;
+        color: teal;
+        margin-bottom: 20px;
+    }
+    
+    #inputBox form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #inputBox label {
+        margin-bottom: 10px;
+        
+        color: #333;
+    }
+    
+    #inputBox input[type="text"],
+    #inputBox input[type="email"],
+    #inputBox input[type="tel"] {
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        width: 80%;
+        font-size: 1em;
+    }
+        
+        #educationBox {
+        width: 60%;
+        margin: auto;
+        margin-top: 40px;
+        padding: 2%;
+        border: 1px solid #ddd;
+        border-radius: 5%;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #educationBox h2 {
+        text-align: center;
+        color: teal;
+        margin-bottom: 20px;
+    }
+
+    #educationBox form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #educationBox label {
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    #educationBox input[type="text"],
+    #educationBox input[type="date"] {
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        width: 80%;
+        font-size: 1em;
+    }
+
+
+        #skillsBox {
+        width: 60%;
+        margin: auto;
+        margin-top: 40px;
+        padding: 2%;
+        border: 1px solid #ddd;
+        border-radius: 5%;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #skillsBox h2 {
+        text-align: center;
+        color: teal;
+        margin-bottom: 20px;
+    }
+
+    #skillsBox form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #skillsBox label {
+        margin-bottom: 10px;
+       
+        color: #333;
+    }
+
+    #skillsBox input[type="text"],
+    #skillsBox select {
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        width: 80%;
+        font-size: 1em;
+    }
+
+    button[type="submit"] {
+        background-color: #FF5722;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2em;
+        margin-top: 20px;
+        width: 40%;
+        align-self: center;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #008080;
+    }
+
+       
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 70%;
+            margin: auto;
+        
+        }
+        h1 {
+            color: teal;
+        }
+        h2{
+            color: white;
+        }
+        .resume-section {
+            margin-bottom: 20px;
+        }
+        #resumePreview {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff; /* White text */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);  
+            background-color: teal;
+            background-image: url('5.jpg') ;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: right center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="navBar">
+        <a href="Homepage.html">Home</a>
+        <a href="search.html">Search</a>
+        <a href="#">Resume</a>
+        <a href="application.html">Application</a>
+        <a href="appliedJobs.html">Applied Jobs</a>
+    </div>
+        <form id="myForm">
+            <div id="inputBox">
+                <h2>Personal Details</h2>
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required><br><br>
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required><br><br>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required><br><br>   
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" required><br><br>   
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required><br><br>   
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" required><br><br>   
+                <label for="postalCode">Postal Code:</label>
+                <input type="text" id="postalCode" name="postalCode" required><br><br>
+            </div>
+            
+            <div id="educationBox">
+                <h2>Education</h2>
+                <label for="degree">Degree:</label>
+                <input type="text" id="degree" name="degree" required><br><br>
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate" name="startDate" required><br><br>
+                <label for="endDate">End Date:</label>
+                <input type="date" id="endDate" name="endDate" required><br><br>
+                <label for="university">University:</label>
+                <input type="text" id="university" name="university" required><br><br>
+                <label for="cityOfUniversity">City of University:</label>
+                <input type="text" id="cityOfUniversity" name="cityOfUniversity" required><br><br>
+            </div>
+            
+            <div id="skillsBox">
+                <h2>Skills</h2>
+                <label for="skill">Skill:</label>
+                <input type="text" id="skill" name="skill" required><br><br>
+                <label for="level">Level:</label>
+                <select id="level" name="level">
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Expert">Expert</option>
+                </select><br><br>
+            </div>
+    
+            <button type="submit">Submit</button>
+        </form>
+    
+        <h1>Resume Preview</h1>
+        <div id="resumePreview"></div>
+        <button id="downloadPdfButton" style="display: none;">Download as PDF</button>
+        <script>
+            document.getElementById('myForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent form submission
+    
+                // Fetch form data
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const address = document.getElementById('address').value;
+                const state = document.getElementById('state').value;
+                const city = document.getElementById('city').value;
+                const country = document.getElementById('country').value;
+                const postalCode = document.getElementById('postalCode').value;
+                const degree = document.getElementById('degree').value;
+                const startDate = document.getElementById('startDate').value;
+                const endDate = document.getElementById('endDate').value;
+                const university = document.getElementById('university').value;
+                const cityOfUniversity = document.getElementById('cityOfUniversity').value;
+                const skill = document.getElementById('skill').value;
+                const level = document.getElementById('level').value;
+    
+                // Generate resume preview
+                const resume = `
+                    <div class="resume-section">
+                        <h2>Personal Details</h2>
+                        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+                        <p><strong>Email:</strong> ${email}</p>
+                        <p><strong>Phone:</strong> ${phone}</p>
+                        <p><strong>Address:</strong> ${address}, ${city}, ${state}, ${country} - ${postalCode}</p>
+                    </div>
+                    <div class="resume-section">
+                        <h2>Education</h2>
+                        <p><strong>Degree:</strong> ${degree}</p>
+                        <p><strong>University:</strong> ${university} (${cityOfUniversity})</p>
+                        <p><strong>Duration:</strong> ${startDate} to ${endDate}</p>
+                    </div>
+                    <div class="resume-section">
+                        <h2>Skills</h2>
+                        <p><strong>Skill:</strong> ${skill}</p>
+                        <p><strong>Level:</strong> ${level}</p>
+                    </div>
+                `;
+    
+                document.getElementById('resumePreview').innerHTML = resume;
+                document.getElementById('downloadPdfButton').style.display = 'inline-block'; // Show PDF download button
+            });
+    
+            document.getElementById('downloadPdfButton').addEventListener('click', function() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+    
+                // Generate PDF from HTML content
+                const resumeContent = document.getElementById('resumePreview');
+    
+                // Use the html() method of jsPDF to convert HTML to PDF
+                doc.html(resumeContent, {
+                    callback: function (doc) {
+                        doc.save('resume.pdf');
+                    },
+                    margin: [10, 10, 10, 10],
+                    x: 10,
+                    y: 10
+                });
+            });
+        </script>
+    </body>
+    </html>
